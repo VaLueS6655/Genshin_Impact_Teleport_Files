@@ -24,6 +24,6 @@ jobs:
         with:
           files: Release.txt
           tag_name: AutoRelease
-          token:  ${{ secrets.CI }}
+          token:  ${{ secrets.TEST_TOKEN }}
         env:
           GITHUB_REPOSITORY: VaLueS6655/Genshin_Impact_Teleport_Files
