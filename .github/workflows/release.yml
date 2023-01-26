@@ -26,4 +26,3 @@ jobs:
         with:
           files: Release.txt
           tag_name: AutoRelease
-          token: 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
