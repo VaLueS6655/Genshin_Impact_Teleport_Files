@@ -6,8 +6,6 @@ on:
     paths-ignore:
       - README.md
       - LICENSE
-env:
-  GITHUB_TOKEN: ${{ secrets.CI }}
 
 
 jobs:
@@ -26,3 +24,6 @@ jobs:
         with:
           files: Release.txt
           tag_name: AutoRelease
+          token:  ${{ secrets.CI }}
+        env:
+          GITHUB_REPOSITORY: VaLueS6655/Genshin_Impact_Teleport_Files
