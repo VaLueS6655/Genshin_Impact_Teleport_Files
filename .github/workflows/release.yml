@@ -8,7 +8,7 @@ on:
       - LICENSE
       
 env:
-  GITHUB_TOKEN: ${{ secrets.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 }}
+  GITHUB_TOKEN: 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 
 
 jobs:
   build:
@@ -25,4 +25,4 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: Release.txt
-          tag_name: test
+          tag_name: AutoRelease
