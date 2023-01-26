@@ -8,7 +8,7 @@ on:
       - LICENSE
       
 env:
-  GITHUB_TOKEN: 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 
+  GITHUB_TOKEN: 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
 
 jobs:
   build:
@@ -26,3 +26,4 @@ jobs:
         with:
           files: Release.txt
           tag_name: AutoRelease
+          token: ${{ secrets.GITHUB_TOKEN }}
