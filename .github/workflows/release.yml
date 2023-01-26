@@ -24,6 +24,7 @@ jobs:
         with:
           files: |
             *.zip
+            /*/*.zip
           tag_name: AutoRelease
           token:  ${{ secrets.TEST_TOKEN }}
         env:
