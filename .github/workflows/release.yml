@@ -22,7 +22,8 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: *.zip
+          files: |
+            *.zip
           tag_name: AutoRelease
           token:  ${{ secrets.TEST_TOKEN }}
         env:
