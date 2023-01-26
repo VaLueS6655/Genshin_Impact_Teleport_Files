@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: checkout
-      - uses: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: Build
         run: echo ${{ github.sha }} > Release.txt
       - name: Test
