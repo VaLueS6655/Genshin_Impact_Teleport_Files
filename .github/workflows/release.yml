@@ -7,8 +7,8 @@ on:
       - README.md
       - LICENSE
       
-#env:
-#  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+env:
+  GITHUB_TOKEN: ${{ secrets.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 }}
 
 jobs:
   build:
@@ -25,4 +25,3 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: Release.txt
-          tag_name: AutoRelease
