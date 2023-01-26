@@ -6,6 +6,8 @@ on:
     paths-ignore:
       - README.md
       - LICENSE
+env:
+  GITHUB_TOKEN: ${{ secrets.CI }}
 
 
 jobs:
@@ -24,4 +26,3 @@ jobs:
         with:
           files: Release.txt
           tag_name: AutoRelease
-          token: ${{ secrets.CI }}
