@@ -28,33 +28,21 @@ jobs:
           python-version: 3.10.9
       - name: build
         run: python package.py
-      - name: Release subdirec1
-        uses: softprops/action-gh-release@v0.1.15
+#      - name: Release
+#        uses: softprops/action-gh-release@v0.1.15
+#        with:
+#          files: |
+#            */*.zip
+#          tag_name: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
+#          draft: false
+#          prerelease: false
+#          token:  ${{ secrets.TEST_TOKEN }}
+      - uses: ncipollo/release-action@v1
         with:
-          files: |
-            */*.zip
-          tag_name: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
-          draft: false
-          prerelease: false
-          token:  ${{ secrets.TEST_TOKEN }}
-      - name: Release subdirec2
-        uses: softprops/action-gh-release@v0.1.15
-        with:
-          files: |
-            */*/*.zip
-          tag_name: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
-          draft: false
-          prerelease: false
-          token:  ${{ secrets.TEST_TOKEN }}
-      - name: Release subdirec3
-        uses: softprops/action-gh-release@v0.1.15
-        with:
-          files: |
-            */*/*/*.zip
-          tag_name: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
-          draft: false
-          prerelease: false
-          token:  ${{ secrets.TEST_TOKEN }}
+          artifacts: "**/**.zip"
+          tag: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
+          token: ${{ secrets.TEST_TOKEN }}
+
 
 #*.zip
 #*/*.zip
