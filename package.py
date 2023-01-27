@@ -108,9 +108,9 @@ for k, v in zip_task.items():
     log(zip_name)
     # exit()
     i += 1
-    log(f"progressing:{i}/{l}\n=======compression：{k}->{v[1]}")
+    log(f"progressing:{i}/{l}\n=======compression:{k}->{v[1]}")
     if endwith_check(k):
-        log(f"progressing:{i}/{l}\n=======skipped：{k}->{v[1]}")
+        log(f"progressing:{i}/{l}\n=======skipped:{k}->{v[1]}")
         continue
     zip_folder(k, v[1].replace("\\", "/"))
     readme_path = os.path.dirname(v[0]) + "/readme.md"
