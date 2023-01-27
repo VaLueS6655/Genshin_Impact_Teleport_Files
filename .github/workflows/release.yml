@@ -25,7 +25,7 @@ jobs:
         uses: TheDoctor0/zip-release@0.7.0
         with: 
           type: 'zip'
-          filename: '${{ build.path }}.zip'
+          filename: '${{ path }}.zip'
           exclusions: '*.git* AutoGeneratePoint'
       - name: Release
         uses: softprops/action-gh-release@v1
