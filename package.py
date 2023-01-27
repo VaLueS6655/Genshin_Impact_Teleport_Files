@@ -119,10 +119,10 @@ for k, v in zip_task.items():
     readme_path = os.path.dirname(v[0]) + "/readme.md"
     # 获得压缩包文件名
     
-    url = (
-        "https://raw.githubusercontent.com/Sam5440/Genshin_Impact_Teleport_Files/main/"
-        + quote(v[1].replace("\\", "/").replace("zips/", ""))
-    )
+    #url = (
+    #    "https://raw.githubusercontent.com/Sam5440/Genshin_Impact_Teleport_Files/main/"
+    #    + quote(v[1].replace("\\", "/").replace("zips/", ""))
+    #)
     # print(f"进度：{i}/{l}\n=======写入readme：{k}->{v[1]}")
     
     #readme_create(readme_path, f"### [{zip_name}]({url})\n\n")
