@@ -8,9 +8,9 @@ from urllib.parse import quote
 sys.stdin.reconfigure(encoding='utf-8')
 sys.stdout.reconfigure(encoding='utf-8')
 
-except_folders = [".git", ".vscode", "zips", ".github"]
+except_folders = [".git", ".vscode", "zips", ".github", "AutoGeneratePoint"]
 no_zip_folders = [
-    "AutoGeneratePoint"
+    "AutoGeneratePoint", "ManualCollectPoint", "OtherFile"
 ]  # "ManualCollectPoint"]
 
 # 获得当前路径
