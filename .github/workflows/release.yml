@@ -15,16 +15,20 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: Build
-        run: echo ${{ github.sha }} > Release.txt
-      - name: Test
-        run: cat Release.txt
+      - name: python
+        uses: actions/setup-python@v4.5.0
+      - name: build
+        run: python package.py
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
             *.zip
             */*.zip
+            */*/*.zip
+            */*/*/*.zip
+            */*/*/*/*.zip
+            */*/*/*/*/*.zip
           tag_name: AutoRelease
           token:  ${{ secrets.TEST_TOKEN }}
         env:
