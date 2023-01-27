@@ -7,9 +7,14 @@ on:
       - README.md
       - LICENSE
 
+env:
+  GITHUB_REPOSITORY: VaLueS6655/Genshin_Impact_Teleport_Files
+  CTag: CI_Auto_Release
 
 jobs:
   build:
+      permissions:
+        contents: write
     runs-on: windows-2019
 
     steps:
@@ -27,13 +32,14 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            */*/*.zip
-            */*/*/*.zip
-            */*/*/*/*.zip
-            */*/*/*/*/*.zip
+            **/**.zip
 #*.zip
 #*/*.zip
-          tag_name: AutoRelease
+#            */*/*/*.zip
+#            */*/*/*/*.zip
+#            */*/*/*/*/*.zip
+          tag_name: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
+          draft: false
+          prerelease: true
           token:  ${{ secrets.TEST_TOKEN }}
-        env:
-          GITHUB_REPOSITORY: VaLueS6655/Genshin_Impact_Teleport_Files
+
