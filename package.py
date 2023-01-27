@@ -9,7 +9,7 @@ time.sleep(10)
 except_folders = ["AutoGeneratePoint", ".git", ".vscode", "zips"]
 no_zip_folders = [
     "AutoGeneratePoint",
-    "Genshin_Impact_Teleport",
+    "OtherFile",
     "ManualCollectPoint",
 ]  # "ManualCollectPoint"]
 
