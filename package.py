@@ -6,10 +6,11 @@ import os
 from urllib.parse import quote
 print("Don't Run in Your Computer, Run in Server")
 time.sleep(10)
-except_folders = [".git", ".vscode", "zips"]
+except_folders = ["AutoGeneratePoint", ".git", ".vscode", "zips"]
 no_zip_folders = [
     "AutoGeneratePoint",
     "Genshin_Impact_Teleport",
+    "ManualCollectPoint",
 ]  # "ManualCollectPoint"]
 
 # 获得当前路径
