@@ -24,19 +24,19 @@ def log(text):
         f.write(text+"\n")
         f.close()
         
-def readme_create(readme_path, text):
-    decode_code = "utf-8"
-    text = text.encode().decode(decode_code)
-    if not os.path.exists(readme_path):
-        with open(readme_path, "w", encoding=decode_code) as f:
-            #写入时间
-            time_now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-            f.write(f"# {time_now}\n\n")
-            f.close()
+#def readme_create(readme_path, text):
+#    decode_code = "utf-8"
+#    text = text.encode().decode(decode_code)
+#    if not os.path.exists(readme_path):
+#        with open(readme_path, "w", encoding=decode_code) as f:
+#            #写入时间
+#            time_now = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+#            f.write(f"# {time_now}\n\n")
+#            f.close()
     # 在readme文件后面补充一行
-    with open(readme_path, "a", encoding=decode_code) as f:
-        f.write(text)
-        f.close()
+#    with open(readme_path, "a", encoding=decode_code) as f:
+#        f.write(text)
+#        f.close()
 # t= """
 # (Raw)[cn-en-ru]\ru-ru\Monster_And_Animal\ID1-BigWorld_LevelStreaming\ID20010401-Большой Анемо слайм
 # ### [文件夹](http://www.baidu.com)"""
@@ -116,7 +116,7 @@ for k, v in zip_task.items():
         log(f"progressing:{i}/{l}\n=======skipped:{k}->{v[1]}")
         continue
     zip_folder(k, v[1].replace("\\", "/"))
-    readme_path = os.path.dirname(v[0]) + "/readme.md"
+    #readme_path = os.path.dirname(v[0]) + "/readme.md"
     # 获得压缩包文件名
     
     #url = (
@@ -155,7 +155,7 @@ for k, v in zip_task.items():
 #    f.write(push_bat)
 #    f.close()
     
-#log("完成")
+log("completed")
 
 # 运行push.bat
 #push_confirm = input(f"是否push？(yes/no)")
