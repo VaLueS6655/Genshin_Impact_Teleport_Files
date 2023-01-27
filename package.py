@@ -1,7 +1,7 @@
 import time
 import zipfile
 
-# import sys
+import sys
 import os
 from urllib.parse import quote
 
