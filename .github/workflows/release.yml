@@ -21,11 +21,10 @@ jobs:
         uses: actions/setup-python@v4.5.0
         with:
           python-version: 3.10.9
-      - name: Git Checkout,Zipfile,Commit
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with: 
           token: ${{ secrets.TEST_TOKEN }}
-        run: |
+      - run: |
           git config --global core.longpaths true
           git config --local user.name Drich
           git config --local user.email values@matsuri.cc
