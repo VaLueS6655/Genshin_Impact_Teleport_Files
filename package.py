@@ -132,17 +132,17 @@ for k, v in zip_task.items():
 
 rootdir = 'zips'
 for zipparent, zipdirnames, zipfilenames in os.walk(rootdir):
-    for deltxt in glob.glob(os.path.join(zipparent, '*.txt')):
-        os.remove(deltxt)
     for zipfilename in zipfilenames:
         print("parent is: " + zipparent)
         print("filename is: " + zipfilename)
-        print(os.path.join(zipparent, zipfilename)) 
+        print(os.path.join(zipparent, zipfilename))
         oldPathName=os.path.join(zipparent, zipfilename)
         newName=quote(zipfilename, 'utf-8')
-        if oldPathName == newName: 
+        if zipfilename == newName: 
+            print("skipped: " + zipfilename)
             continue
         os.rename(oldPathName, newName)
+        print(f"renamed:  + zipfilename to + newName")
         shutil.move(newName,zipparent)
         #pathtree
 #for urlfile in urlpath_tree:
