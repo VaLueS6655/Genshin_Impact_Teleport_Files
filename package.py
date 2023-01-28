@@ -1,11 +1,13 @@
 import time
 import zipfile
 import shutil
-import glob
 
-# import sys
+import sys
 import os
 from urllib.parse import quote
+sys.stdout.reconfigure(encoding='utf-8')
+sys.stdin.reconfigure(encoding='utf-8')
+
 print("Don't Run in Your Computer, Run in Server")
 time.sleep(10)
 except_folders = ["AutoGeneratePoint", ".git", ".vscode", "zips", ".github", "OtherFile"]
@@ -142,7 +144,7 @@ for zipparent, zipdirnames, zipfilenames in os.walk(rootdir):
             print("skipped: " + zipfilename)
             continue
         os.rename(oldPathName, newName)
-        print(f"renamed:  + zipfilename to + newName")
+        print("renamed: %s to %s"%(zipfilename,newName))
         shutil.move(newName,zipparent)
         #pathtree
 #for urlfile in urlpath_tree:
