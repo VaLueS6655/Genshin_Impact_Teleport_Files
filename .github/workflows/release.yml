@@ -27,14 +27,19 @@ jobs:
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
           python package.py
-          rmdir /s .git
+      - uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: git@github.com:VaLueS6655/Genshin_Impact_Teleport_Files.git
+          BRANCH: test
+          FOLDER: zips
+          GITHUB_TOKEN: ${{ secrets.TEST_TOKEN }}
 
-      - run: |
-          git config --local user.name GithubAction
-          git config --local user.email action@github.com
-          git add .
-          git commit -m "$github.run_number"
-          git push origin main:test -f
+#      - run: |
+#          git config --local user.name GithubAction
+#          git config --local user.email action@github.com
+#          git add .
+#          git commit -m "$github.run_number"
+#          git push origin main:test -f
 #      - name: Release
 #        uses: softprops/action-gh-release@v0.1.15
 #        with:
