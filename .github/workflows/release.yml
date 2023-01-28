@@ -27,11 +27,9 @@ jobs:
           node-version: 16.15.1
       - run: git config --global core.longpaths true
       - uses: actions/checkout@v3
-        with: 
-          token: ${{ secrets.TEST_TOKEN }}
       - run: |
           python package.py
-      - uses: s0/git-publish-subdir-action@develop
+      - uses: s0/git-publish-subdir-action@2.6.0
         env:
           REPO: git@github.com:VaLueS6655/Genshin_Impact_Teleport_Files.git
           BRANCH: test
