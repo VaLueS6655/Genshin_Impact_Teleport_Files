@@ -116,7 +116,7 @@ for k, v in zip_task.items():
         log(f"进度：{i}/{l}\n=======跳过文件夹：{k}->{v[1]}")
         continue
     zip_folder(k, v[1].replace("\\", "/"))
-    os.renames(v[1],quote(v[1], 'utf-8'))
+    os.renames(v[1].replace("\\", "/"),quote(v[1].replace("\\", "/"), 'utf-8'))
     readme_path = os.path.dirname(v[0]) + "/readme.md"
     # 获得压缩包文件名
     
