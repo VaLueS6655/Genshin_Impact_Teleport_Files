@@ -43,7 +43,8 @@ jobs:
           artifacts: "**/**.zip"
           tag: ${{ env.CTag }}-${{ GITHUB.RUN_NUMBER }}
           token: ${{ secrets.TEST_TOKEN }}
-          repo: true
+          repo: ${{ GITHUB_REPOSITORY }}
+          replacesArtifacts: true
 
 
 #*.zip
