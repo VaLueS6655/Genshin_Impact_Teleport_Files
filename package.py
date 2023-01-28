@@ -92,7 +92,6 @@ for file in path_tree:
     zip_task[file] = [
         file.replace(path, path + "\\zips"),
         file.replace(path, "zips") + ".zip",
-        os.renames(file,quote(file, 'utf-8'))
     ]
     if not os.path.exists(zip_task[file][0]):
         os.makedirs(zip_task[file][0])
@@ -127,9 +126,18 @@ for k, v in zip_task.items():
     # print(f"进度：{i}/{l}\n=======写入readme：{k}->{v[1]}")
     
     readme_create(readme_path, f"### [{zip_name}]({url})\n\n")
-
-
-
+zippath = 'zips/'
+zipfilelist = os.listdir(zippath)
+for item in zipfilelist:
+    if item.endswith('.zip'):
+        name = item.split('.',3)[0] + item.split('.',3)[1]
+        src = os.path.join(os.path.abspath(path),item)
+        dst = quote(os.path.join(os.path.abspath(path),name + '.zip'), 'utf-8')
+    try:
+        os.rename(src,dst)
+        print('rename from %s to %s'%(src,dst))
+    except:
+        continue
 
 
 #删除全部空文件夹 
