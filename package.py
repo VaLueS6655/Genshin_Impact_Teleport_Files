@@ -1,13 +1,14 @@
 import time
 import zipfile
 import shutil
+import glob
 
 # import sys
 import os
 from urllib.parse import quote
 print("Don't Run in Your Computer, Run in Server")
 time.sleep(10)
-except_folders = ["AutoGeneratePoint", ".git", ".vscode", "zips"]
+except_folders = ["AutoGeneratePoint", ".git", ".vscode", "zips", ".github", "OtherFile"]
 no_zip_folders = [
     "AutoGeneratePoint",
     "OtherFile",
@@ -131,14 +132,17 @@ for k, v in zip_task.items():
 
 rootdir = 'zips'
 for zipparent, zipdirnames, zipfilenames in os.walk(rootdir):
+    for deltxt in glob.glob(os.path.join(zipparent, '*.txt')):
+        os.remove(deltxt)
     for zipfilename in zipfilenames:
         print("parent is: " + zipparent)
         print("filename is: " + zipfilename)
         print(os.path.join(zipparent, zipfilename)) 
+        oldPathName=os.path.join(zipparent, zipfilename)
         newName=quote(zipfilename, 'utf-8')
-        if os.path.join(zipparent, zipfilename)==newName: 
+        if oldPathName == newName: 
             continue
-        os.rename(os.path.join(zipparent, zipfilename), newName)
+        os.rename(oldPathName, newName)
         shutil.move(newName,zipparent)
         #pathtree
 #for urlfile in urlpath_tree:
