@@ -26,6 +26,7 @@ jobs:
         with: 
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
+          python package.py
           cd $GITHUB_WORKSPACE/zips
           git config --local user.name GithubAction
           git config --local user.email action@github.com
