@@ -26,10 +26,10 @@ jobs:
         with: 
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
-          git config --local user.name Drich
-          git config --local user.email values@matsuri.cc
+          git config --local user.name "Drich"
+          git config --local user.email "values@matsuri.cc"
           git add .
-          git commit -m "$github_sha"
+          git commit -m "$github.run_number"
           git push origin down -f
 #      - name: Release
 #        uses: softprops/action-gh-release@v0.1.15
