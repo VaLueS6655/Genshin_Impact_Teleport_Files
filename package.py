@@ -92,6 +92,7 @@ for file in path_tree:
     zip_task[file] = [
         file.replace(path, path + "\\zips"),
         file.replace(path, "zips") + ".zip",
+        os.renames(file,quote(file, 'utf-8'))
     ]
     if not os.path.exists(zip_task[file][0]):
         os.makedirs(zip_task[file][0])
@@ -116,7 +117,6 @@ for k, v in zip_task.items():
         log(f"进度：{i}/{l}\n=======跳过文件夹：{k}->{v[1]}")
         continue
     zip_folder(k, v[1].replace("\\", "/"))
-    os.renames(v[1].replace("\\", "/"),quote(v[1].replace("\\", "/"), 'utf-8'))
     readme_path = os.path.dirname(v[0]) + "/readme.md"
     # 获得压缩包文件名
     
