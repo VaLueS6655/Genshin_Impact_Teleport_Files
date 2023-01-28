@@ -26,6 +26,7 @@ jobs:
         with: 
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
+          cd "$github.workspace/zips"
           git config --local user.name GithubAction
           git config --local user.email action@github.com
           git add .
