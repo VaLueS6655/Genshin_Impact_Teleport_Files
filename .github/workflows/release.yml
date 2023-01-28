@@ -32,9 +32,8 @@ jobs:
         run: python package.py
       - name: Git Commit
         run: |
-          git checkout down
           git commit zips/ -am "$github_sha"
-          git push -f
+          git push -u origin down -f
 #      - name: Release
 #        uses: softprops/action-gh-release@v0.1.15
 #        with:
