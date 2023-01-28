@@ -127,19 +127,27 @@ for k, v in zip_task.items():
     
     readme_create(readme_path, f"### [{zip_name}]({url})\n\n")
 
-def rename(): 
-    path="zips/" #文件路径
-    zipfilelist = os.listdir(path) #该文件夹下的所有文件
+#def rename(): 
+#    zipfilepath="zips" #文件路径
+#    zipfilelist = os.listdir(zipfilepath) #该文件夹下的所有文件
 
-    for file in zipfilelist: #遍历所有文件 包括文件夹
-        Olddir = os.path.join(path,file)#原来文件夹的路径
-        if os.path.isdir(Olddir):#如果是文件夹，则跳过
-            continue
-        filename = quote(os.path.splitext(file)[0], 'utf-8')  #文件名
-        filetype = ".zip"#os.path.splitext(file)[1]   文件扩展名
-        Newdir = os.path.join(path,filename) #新的文件路径
-        os.rename(Olddir,Newdir) #重命名
-rename()
+#    for file in zipfilelist: #遍历所有文件 包括文件夹
+#        Olddir = os.path.join(zipfilepath,file)#原来文件夹的路径
+#        filename = quote(os.path.splitext(file)[0], 'utf-8')  #文件名
+#        filetype = ".zip"#os.path.splitext(file)[1]   文件扩展名
+#        Newdir = os.path.join(zipfilepath,filename + filetype) #新的文件路径
+#        os.rename(Olddir,Newdir) #重命名
+#rename()
+
+
+rootdir = "zips"
+for zipparent, zipdirnames, zipfilenames in os.walk(rootdir):
+    for zipfilename in zipfilenames:
+        print("parent is: " + zipparent)
+        print("filename is: " + zipfilename)
+        print(os.path.join(zipparent, zipfilename))  # 输出rootdir路径下所有文件（包含子文件）信息
+        newName=quote(zipfilename, 'utf-8')
+        os.rename(os.path.join(zipparent, zipfilename), newName)
 
 #删除全部空文件夹 
 
