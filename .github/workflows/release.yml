@@ -29,7 +29,7 @@ jobs:
           python package.py
           git config --local user.name GithubAction
           git config --local user.email action@github.com
-          git add ./zips
+          git add .
           git commit -m "Github Action"
           git push origin main:down -f
 #      - name: Release
