@@ -27,10 +27,9 @@ jobs:
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
           python package.py
-          cd ./zips
           git config --local user.name GithubAction
           git config --local user.email action@github.com
-          git add .
+          git add ./zips
           git commit -m "Github Action"
           git push origin main:down -f
 #      - name: Release
