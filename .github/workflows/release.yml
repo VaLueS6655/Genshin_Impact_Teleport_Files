@@ -8,7 +8,6 @@ on:
       - LICENSE
 
 env:
-  GITHUB_REPOSITORY: https://github.com/VaLueS6655/Genshin_Impact_Teleport_Files
   CTag: CI_Auto_Release
 
 jobs:
@@ -34,7 +33,7 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add ./zips
+          git add .
           git commit -m "$github_sha"
           git push origin down -f
 #      - name: Release
