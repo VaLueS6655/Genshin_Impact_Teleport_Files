@@ -108,8 +108,7 @@ os.system("rmdir /s /q .git")
 for k, v in zip_task.items():
     # print(k,v)
     zip_name = v[1].split("\\")[-1]
-    urlzip_name = quote(zip_name, 'utf-8')
-    log(urlzip_name)
+    log(zip_name)
     # exit()
     i += 1
     log(f"进度：{i}/{l}\n=======压缩文件夹：{k}->{v[1]}")
@@ -117,6 +116,7 @@ for k, v in zip_task.items():
         log(f"进度：{i}/{l}\n=======跳过文件夹：{k}->{v[1]}")
         continue
     zip_folder(k, v[1].replace("\\", "/"))
+    os.renames(v[1],quote(v[1], 'utf-8'))
     readme_path = os.path.dirname(v[0]) + "/readme.md"
     # 获得压缩包文件名
     
@@ -126,7 +126,7 @@ for k, v in zip_task.items():
     )
     # print(f"进度：{i}/{l}\n=======写入readme：{k}->{v[1]}")
     
-    readme_create(readme_path, f"### [{urlzip_name}]({url})\n\n")
+    readme_create(readme_path, f"### [{zip_name}]({url})\n\n")
 
 
 
