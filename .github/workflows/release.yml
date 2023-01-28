@@ -27,7 +27,7 @@ jobs:
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
           python package.py
-          rmdir .git /s /q
+          rmdir /s /q .git
 
       - run: |
           git config --local user.name GithubAction
