@@ -31,7 +31,7 @@ jobs:
           git config --local user.email action@github.com
           git add .
           git commit -m "$github.run_number"
-          git push origin main:down -f
+          git push origin main:test -f
 #      - name: Release
 #        uses: softprops/action-gh-release@v0.1.15
 #        with:
