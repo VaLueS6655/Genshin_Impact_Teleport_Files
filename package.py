@@ -127,33 +127,20 @@ for k, v in zip_task.items():
     
     readme_create(readme_path, f"### [{zip_name}]({url})\n\n")
 
-def rename(path,old,new):
-    # 获取所有的文件名
-    files = os.listdir(path)
-    for file in files:
-        # 原来的文件路径
-        oldDirPath = os.path.join(path, file)
-        # 判断是否为文件夹。如果是文件夹则递归调用
-        if os.path.isdir(oldDirPath):
-            rename(oldDirPath, old, new)
-        # 带路径的文件名,splitext方法会将路径和文件扩展名分割为元组
-        fileName,fileType = os.path.splitext(oldDirPath)
-        # 判断扩展名是否为我们需要更改的类型，如果是则执行下面操作
-        if fileType in old:
-            # 替换扩展名
-            fileType = new
-            # 组成新的文件名
-            newDirPath = quote(fileName, 'utf-8') + fileType
-            print("新的文件名为：", newDirPath)
-            # 重命名
-            os.rename(oldDirPath, newDirPath)
+def rename(): 
+    path="zips/" #文件路径
+    zipfilelist = os.listdir(path) #该文件夹下的所有文件
 
+    for file in zipfilelist: #遍历所有文件 包括文件夹
+        Olddir = os.path.join(path,file)#原来文件夹的路径
+        if os.path.isdir(Olddir):#如果是文件夹，则跳过
+            continue
+        filename = quote(os.path.splitext(file)[0], 'utf-8')  #文件名
+        filetype = ".zip"#os.path.splitext(file)[1]   文件扩展名
+        Newdir = os.path.join(path,filename) #新的文件路径
+        os.rename(Olddir,Newdir) #重命名
+rename()
 
-path = r".\zips"
-old = [".zip"]
-new = ".zip"
-
-rename(path,old,new)
 #删除全部空文件夹 
 
 #del_folders = []
