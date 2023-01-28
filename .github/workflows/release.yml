@@ -32,7 +32,9 @@ jobs:
         run: python package.py
       - name: Git Commit
         run: |
-          git add -u zips/
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add ./zips
           git commit -m "$github_sha"
           git push origin down -f
 #      - name: Release
