@@ -28,7 +28,6 @@ jobs:
       - run: |
           git config --local user.name "Drich"
           git config --local user.email "values@matsuri.cc"
-          cd ./zips
           git add .
           git commit -m "$github.run_number"
           git push main down -f
