@@ -49,8 +49,7 @@ def zip_folder(source_dir, output_filename):
         for filename in filenames:
             path_file = os.path.join(parent, filename)
             arc_name = path_file[pre_len:].strip(os.path.sep)  # 相对路径
-            arcn_name = quote(arc_name, 'utf8')
-            zip.write(path_file, arcn_name)
+            zip.write(path_file, arc_name)
     zip.close()
 
 
@@ -109,7 +108,8 @@ os.system("rmdir /s /q .git")
 for k, v in zip_task.items():
     # print(k,v)
     zip_name = v[1].split("\\")[-1]
-    log(zip_name)
+    urlzip_name = quote(zip_name, 'utf-8')
+    log(urlzip_name)
     # exit()
     i += 1
     log(f"进度：{i}/{l}\n=======压缩文件夹：{k}->{v[1]}")
@@ -126,7 +126,7 @@ for k, v in zip_task.items():
     )
     # print(f"进度：{i}/{l}\n=======写入readme：{k}->{v[1]}")
     
-    readme_create(readme_path, f"### [{zip_name}]({url})\n\n")
+    readme_create(readme_path, f"### [{urlzip_name}]({url})\n\n")
 
 
 
@@ -134,13 +134,13 @@ for k, v in zip_task.items():
 
 #删除全部空文件夹 
 
-del_folders = []
-for root, dirs, files in os.walk(path_zips, topdown=False):
-    for name in dirs:
-        if not os.listdir(os.path.join(root, name)):
-            del_folders.append(os.path.join(root, name))
-            os.rmdir(os.path.join(root, name))
-log(del_folders)
+#del_folders = []
+#for root, dirs, files in os.walk(path_zips, topdown=False):
+#    for name in dirs:
+#        if not os.listdir(os.path.join(root, name)):
+#            del_folders.append(os.path.join(root, name))
+#            os.rmdir(os.path.join(root, name))
+#log(del_folders)
 
 # push_bat = """
 # cd ./zips
