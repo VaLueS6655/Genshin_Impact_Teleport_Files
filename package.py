@@ -49,7 +49,8 @@ def zip_folder(source_dir, output_filename):
         for filename in filenames:
             path_file = os.path.join(parent, filename)
             arc_name = path_file[pre_len:].strip(os.path.sep)  # 相对路径
-            zip.write(path_file, arc_name)
+            arcn_name = quote(arc_name, 'utf8')
+            zip.write(path_file, arcn_name)
     zip.close()
 
 
