@@ -26,11 +26,11 @@ jobs:
         with: 
           token: ${{ secrets.TEST_TOKEN }}
       - run: |
-          cd "$github.workspace/zips"
+          cd $GITHUB_WORKSPACE/zips
           git config --local user.name GithubAction
           git config --local user.email action@github.com
           git add .
-          git commit -m "$github.run_number"
+          git commit -m "Github Action"
           git push origin main:down -f
 #      - name: Release
 #        uses: softprops/action-gh-release@v0.1.15
