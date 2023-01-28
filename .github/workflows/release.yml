@@ -33,7 +33,7 @@ jobs:
       - name: Git Commit
         run: |
           git checkout down
-          git commit zips/ -am "${{ github_sha }}"
+          git commit zips/ -am "$github_sha"
           git push -f
 #      - name: Release
 #        uses: softprops/action-gh-release@v0.1.15
